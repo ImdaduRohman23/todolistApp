@@ -2,6 +2,7 @@ import './App.css';
 import Form from './components/Form';
 import Header from './components/Header';
 import { useState } from 'react';
+import TodoList from './components/TodoList';
 
 function App() {
   const [input, setInput] = useState('');
@@ -15,6 +16,9 @@ function App() {
         </div>
         <div>
           <Form input={input} setInput={setInput} todos={todos} setTodos={setTodos}/>
+        </div>
+        <div>
+          <TodoList todos={todos} setTodos={setTodos}/>
         </div>
       </div>
     </div>
