@@ -1,9 +1,17 @@
 import React from 'react'
 
 const TodoList = ({todos, setTodos}) => {
-    // const handleDelete = (id) => (
-    //     setTodos(todos.filter(i => i.id !== id))
-    // )
+    const handleDelete = (id) => (
+        setTodos(todos.filter(i => i.id !== id))
+    )
+
+    const handleComplete = (id) => {
+        setTodos(todos.map(i => {
+            if(i.id === id){
+                return {...i , completed: !i.completed}
+            } else return i
+        }))
+    }
 
     return (
         <div>
@@ -13,11 +21,11 @@ const TodoList = ({todos, setTodos}) => {
                         <input 
                             type="text" 
                             value={i.title}
-                            className='list'
-                            // onChange={e => e.preventDefault()}
+                            className={`list ${i.completed? 'complete': ""}`}
+                            onChange={e => e.preventDefault()}
                         />
                         <div>
-                            <button className="button-complete task-button">
+                            <button className="button-complete task-button" onClick={() => handleComplete(i.id)}>
                                 <i className="fa fa-check-circle"></i>
                             </button>
                             <button className="button-edit task-button">
