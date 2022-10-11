@@ -4,7 +4,7 @@
 }
 
 .container {
-  background: linear-gradient(to right bottom, #e1b382, #c89666);
+  background-image: url(./assets/bck.png);
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -13,7 +13,7 @@
 }
 
 .app-wrapper {
-  background-color: #12343b;
+  background-color: #1D1D2C;
   min-width: 450px;
   min-height: 500px;
   padding: 30px;
@@ -39,7 +39,7 @@
   font-size: 20px;
   color: #ccc;
   background-color: #000;
-  border: 1px solid #c89666;
+  border: 1.5px solid #fef3e2;
   border-radius: 10px;
 }
 
@@ -49,14 +49,15 @@
   font-size: 20px;
   border-radius: 10px;
   border: 0;
-  background-color: #f1af71;
+  background-color: #EBA63F;
+  border: 1.5px solid #fef3e2;
   cursor: pointer;
 }
 
 .list-item {
   display: flex;
   margin: 20px 0;
-  border: 1px solid #ccc;
+  border: 1.5px solid #ccc;
   border-radius: 10px;
   padding: 10px;
   max-height: 30px;
@@ -71,28 +72,30 @@
   background-color: transparent;
   font-size: 28px;
   border-radius: 50%;
+  margin-right: 20px;
 }
 
 .button-complete {
-  color: #ff6c6c;
-  margin-right: 10px;
+  color: #3CBCC3;
 }
 
 .button-edit {
-  color: #e2d029;
-  margin-right: 10px;
+  color: #438945;
+}
+
+.button-delete {
+  color: #E40C2B;
 }
 
 .complete {
   text-decoration-style: solid;
   text-decoration-line: line-through;
-  text-decoration-color: #ff6c6c;
   opacity: 0.6;
 }
 
 .list {
   width: 220px;
-  background-color: #12343b;
+  background-color: #1D1D2C;
   border: none;
   color: #ccc;
   font-size: 20px;

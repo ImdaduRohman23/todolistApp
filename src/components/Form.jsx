@@ -33,7 +33,7 @@ const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
         <form >
             <input 
                 type="text" 
-                placeholder='Enter a Todo . . .' 
+                placeholder='Enter a todo . . .' 
                 className='task-input'
                 required
                 value={input}
