@@ -1,11 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {v4 as uuidv4} from 'uuid';
 
-const Form = ({input, setInput, todos, setTodos}) => {
+const Form = ({input, setInput, todos, setTodos, editTodo, setEditTodo}) => {
+    const updateTodo = (title, id, completed) => {
+        const newTodo = todos.map(i => (
+            i.id === id ? {title, id, completed} : i
+        ));
+        setTodos(newTodo);
+        setEditTodo('');
+    }
+
+    useEffect(() => {
+        if (editTodo) {
+            setInput(editTodo.title);
+        } else {
+            setInput('');
+        }
+    }, [setInput, editTodo]);
+    
     const handleAdd = (e) => {
         e.preventDefault();
-        setTodos([...todos, {id: uuidv4(), title: input, completed: false}]);
-        setInput('');
+        if(!editTodo) {
+            setTodos([...todos, {id: uuidv4(), title: input, completed: false}]);
+            setInput('');    
+        } else {
+            updateTodo(input, editTodo.id, editTodo.completed)
+        }
     };
 
 
@@ -19,7 +39,11 @@ const Form = ({input, setInput, todos, setTodos}) => {
                 value={input}
                 onChange={e => setInput(e.target.value)}
             />
-            <button onClick={handleAdd} className='button-add' type='submit' >Add</button>
+            <button onClick={handleAdd} className='button-add' type='submit' >
+                {
+                    editTodo? 'OK' : 'Add'
+                }
+            </button>
         </form>
     )
 }
